@@ -1,0 +1,22 @@
+---
+- hosts: nginx
+  become: yes
+  become_user: root
+
+  roles:
+    - nginx 
+  
+  vars_files:
+    - vars.yaml
+  handlers:
+  - name: Restart nginx
+    service:
+      name: nginx
+      state: restarted
+      enabled: yes
+
+  - name: Reload nginx
+    service:
+      name: nginx
+      state: reloaded
+ 
