@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
       box.vm.box = boxconfig[:box_name]
       box.vm.host_name = boxname.to_s
       # Additional network config if present
-      box.vm.network "private_network", ip: "192.168.56.9"
+      box.vm.network "private_network", type: "dhcp"
       
       # VM resources config
       box.vm.provider "virtualbox" do |v|
